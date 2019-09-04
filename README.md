@@ -20,4 +20,4 @@ save the file as: `credentials/credentials.json`
     `docker run -d -p 80:80 -e MODULE_NAME="flask_service" myimage`
 3. curl away -
 
-    `curl -ki -H 'Content-Type: application/json' -d "@sample.json" -X POST http://localhost:80/gmailSender`
+    `curl -i -H 'Content-Type: application/json' -d "@sample.json" -X POST http://localhost:80/gmailSender`
