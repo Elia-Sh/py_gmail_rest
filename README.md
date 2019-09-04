@@ -8,7 +8,10 @@ nicely packed into a docker container.
 # How To
 
 Start API using Docker and gunicorn
-0. get `json credentials` file from google API, for more info: https://developers.google.com/gmail/api/quickstart/python
+
+0. get `json credentials` file from google API,
+for more info: https://developers.google.com/gmail/api/quickstart/python
+save the file as: `credentials/credentials.json`
 1. build the docker image:
 
     `docker build -t gmail_rest_api ./`
