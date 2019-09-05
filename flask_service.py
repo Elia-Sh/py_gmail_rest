@@ -27,13 +27,27 @@ Known issue -> pipenv and deployments,
 For the docker image I've used pip install -r <requirements file>
 
 Start API using docker and gunicorn
+### from gunicorn docker API -> VARIABLE_NAME="flaskname"
+# was included as ENV argument in the dockerfile.
+# see: https://github.com/tiangolo/meinheld-gunicorn-docker#module_name
+###
 0. build the docker image:
     docker build -t gmail_rest_api ./
 1. start docker container -
-    docker run -d -p 80:80 -e MODULE_NAME="flask_service" myimage
+    docker run -d -p 80:80 gmail_rest_api
 3. curl away -
     curl -ki -H 'Content-Type: application/json' -d "@sample.json" -X POST http://localhost:80/gmailSender
 
+Debug docker container ->
+docker ps
+docker exec -it <container name> /bin/bash
+
+Optional deploy -> docker compose/ kubernetes,
+TODO: kubectl create -f docker-compose.yml -> swarm to kubernetes,
+and utilize volumes for DBs, example:
+    docker run -v /host/directory:/container/directory
+
+In general, check https://github.com/tiangolo/fastapi
 '''
 
 from flask import Flask
